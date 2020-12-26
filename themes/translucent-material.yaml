@@ -1,0 +1,27 @@
+Translucent Material:
+  # Header
+  app-header-background-color: "#35363A"
+
+
+  # Main Interface
+  primary-background-color: "#35363A"
+  primary-color: ""
+
+  # Text
+  primary-text-color: "#8C9195"
+
+  # Nav Menu
+
+  # Sidebar Menu
+  sidebar-background-color: "#35363A"
+  sidebar-selected-icon-color: "#FFFFFF"
+  sidebar-selected-text-color: "#FFFFFF"
+
+  # States and Badges
+  state-icon-color: "#FFFFFF"
+  # state-icon-active-color: rgb(95, 99, 104)
+  # state-icon-unavailable-color: var(--disabled-text-color)
+
+  # Cards
+  card-background-color: "#4B4C52"
+  ha-card-border-radius: "10px"
