@@ -1,16 +1,20 @@
 Translucent Material:
+  #Background Image
+  lovelace-background: center / cover no-repeat url("/local/bg.png")
+
   # Header
   app-header-background-color: "#35363A"
 
-
   # Main Interface
   primary-background-color: "#35363A"
-  primary-color: ""
+  primary-color: "#3475e0"
 
   # Text
-  primary-text-color: "#8C9195"
+  primary-text-color: "#7d7d7d"
 
   # Nav Menu
+
+  # Labels
 
   # Sidebar Menu
   sidebar-background-color: "#35363A"
@@ -18,10 +22,33 @@ Translucent Material:
   sidebar-selected-text-color: "#FFFFFF"
 
   # States and Badges
-  state-icon-color: "#FFFFFF"
-  # state-icon-active-color: rgb(95, 99, 104)
-  # state-icon-unavailable-color: var(--disabled-text-color)
+  state-icon-color: var(--primary-text-color)
+  state-icon-active-color: "#FFFFFF"
+  state-icon-unavailable-color: "#474747"
 
   # Cards
-  card-background-color: "#4B4C52"
+  card-background-color: "#38393dcc"
   ha-card-border-radius: "10px"
+  ha-card-box-shadow: "1px 1px 5px 0px #2d2d30"
+
+  # Switches
+  switch-unchecked-button-color: "#a6a6a6"
+  switch-unchecked-track-color: "#a6a6a6"
+  switch-checked-button-color: "#ffffff"
+  switch-checked-track-color: "#a6a6a6"
+
+  # Tables
+  table-row-alternative-background-color: "#3e3f42"
+
+  # card-mod-theme
+  card-mod-theme: "Translucent Material"
+  card-mod-more-info-yaml: |
+    $: |
+      .mdc-dialog__scrim {
+        backdrop-filter: blur(15px) brightness(100%);
+      }
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: var(--card-color);
+        box-shadow: none;
+        border-radius: 1em;
+      }
