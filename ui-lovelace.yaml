@@ -1,0 +1,108 @@
+title: Home
+views:
+  - panel: true
+    path: translucent_material_view
+    cards:
+      - type: picture-elements
+        image: local/bg.png
+        elements:
+          # markdown fix
+          - type: custom:hui-element
+            card_type: markdown
+            style: { opacity: 0 }
+            content: preload
+
+          # Main Backgrond
+          - type: image
+            style:
+              {
+                top: 49.24%,
+                left: 10.6%,
+                width: 21.5%,
+                border-right: "1.5px solid rgba(58,69,73,0.2)",
+              }
+            image: local/sidebar.png
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+
+          # Sidebar Clock
+          - entity: sensor.time
+            type: state-label
+            style:
+              {
+                top: 9%,
+                left: 11.3%,
+                color: "rgba(255, 255, 255, 0.7)",
+                font-size: 5.41vw,
+                font-weight: 200,
+              }
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+
+          # Sidebar Full Date
+          - entity: sensor.date_string
+            type: state-label
+            style:
+              {
+                top: 15%,
+                left: 11.3%,
+                color: "rgba(255, 255, 255, 0.3)",
+                font-size: 1.3vw,
+                font-weight: 600,
+              }
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+
+          # System Load Average Title
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 30%;
+                left: 7.7%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              系统负载
+
+          # System Load Average
+          - entity: sensor.load_1m
+            type: state-label
+            style:
+              {
+                top: 35%,
+                left: 5.7%,
+                color: "rgba(255, 255, 255, 0.7)",
+                font-size: 1.3vw,
+              }
+          - entity: sensor.load_5m
+            type: state-label
+            style:
+              {
+                top: 35%,
+                left: 10.7%,
+                color: "rgba(255, 255, 255, 0.7)",
+                font-size: 1.3vw,
+              }
+          - entity: sensor.load_15m
+            type: state-label
+            style:
+              {
+                top: 35%,
+                left: 14.7%,
+                color: "rgba(255, 255, 255, 0.7)",
+                font-size: 1.3vw,
+              }
