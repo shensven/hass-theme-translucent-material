@@ -28,16 +28,34 @@ views:
               action: none
 
           # Sidebar Clock
-          - entity: sensor.time
-            type: state-label
-            style:
-              {
-                top: 9%,
-                left: 11.3%,
-                color: "rgba(255, 255, 255, 0.7)",
-                font-size: 5.41vw,
-                font-weight: 200,
+          # - entity: sensor.time
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 9%,
+          #       left: 11.3%,
+          #       color: "rgba(255, 255, 255, 0.7)",
+          #       font-size: 5.41vw,
+          #       font-weight: 200,
+          #     }
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 9%;
+                left: 11.3%;
               }
+              ha-card {
+                font-size: 5.41vw;
+                font-weight: 200;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              {{ states('sensor.time') }}
             tap_action:
               action: none
             hold_action:
