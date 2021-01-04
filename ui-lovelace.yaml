@@ -62,16 +62,34 @@ views:
               action: none
 
           # Sidebar Full Date
-          - entity: sensor.date_string
-            type: state-label
-            style:
-              {
-                top: 15%,
-                left: 11.3%,
-                color: "rgba(255, 255, 255, 0.3)",
-                font-size: 1.3vw,
-                font-weight: 600,
+          # - entity: sensor.date_string
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 15%,
+          #       left: 11.3%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #       font-weight: 600,
+          #     }
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 15%;
+                left: 11.3%;
               }
+              ha-card {
+                font-size: 1.3vw;
+                font-weight: 600;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.3);
+                pointer-events: none;
+              }
+            content: >
+              {{ states('sensor.date_string') }}
             tap_action:
               action: none
             hold_action:
