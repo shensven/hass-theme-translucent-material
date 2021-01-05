@@ -146,6 +146,8 @@ views:
           # Button Card
           - type: custom:button-card
             entity: input_boolean.test
+            name: hi
+            show_icon: false
             style: |
               :host {
                 top: 20.35%; 
