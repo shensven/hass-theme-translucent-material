@@ -142,3 +142,8 @@ views:
                 color: "rgba(255, 255, 255, 0.3)",
                 font-size: 1.3vw,
               }
+
+          # Card Button
+          - type: custom:button-card
+            entity: input_boolean.test
+            style: { top: 20.35%, left: 30.31%, width: 10% }
