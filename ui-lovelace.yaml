@@ -147,7 +147,7 @@ views:
           - type: custom:button-card
             entity: input_boolean.test
             name: hi
-            show_icon: false
+            show_icon: true
             style: |
               :host {
                 top: 20.35%; 
@@ -170,3 +170,45 @@ views:
               custom_fields:
                 icon_hue:
                   [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
+
+          # test
+          - type: custom:button-card
+            entity: "weather.wo_de_jia"
+            icon: "mdi:raspberr-pi"
+            aspect_ratio: 1/1
+            name: HassOS
+            styles:
+              card:
+                - background-color: "#000044"
+                - border-radius: 10%
+                - padding: 10%
+                - color: ivory
+                - font-size: 10px
+                - text-shadow: 0px 0px 5px black
+                - text-transform: capitalize
+              grid:
+                - grid-template-areas: '"i temp" "n n" "cpu cpu" "ram ram" "sd sd"'
+                - grid-template-columns: 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content min-content min-content
+              name:
+                - font-weight: bold
+                - font-size: 13px
+                - color: white
+                - align-self: middle
+                - justify-self: start
+                - padding-bottom: 4px
+              img_cell:
+                - justify-content: start
+                - align-items: start
+                - margin: none
+              icon:
+                - color: >
+                    [[[
+                      if (entity.state < 60) return 'lime';
+                      if (entity.state >= 60 && entity.state < 80) return 'orange';
+                      else return 'red';
+                    ]]]
+                - width: 70%
+                - margin-top: -10%
+              custom_fields:
+                temp:
