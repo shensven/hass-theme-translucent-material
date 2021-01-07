@@ -144,12 +144,12 @@ views:
               上次重启
 
           # Last Boot
-          - entity: sensor.last_boot
+          - entity: sensor.last_boot_date_string
             type: state-label
-            style: 
+            style:
               {
                 top: 65%,
-                left: 6.1%,
+                left: 8.4%,
                 color: "rgba(255, 255, 255, 0.3)",
                 font-size: 1.3vw,
               }
