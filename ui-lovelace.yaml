@@ -124,6 +124,36 @@ views:
                 font-size: 1.3vw,
               }
 
+          # Last Boot Title
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 60%;
+                left: 7.7%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              上次重启
+
+          # Last Boot
+          - entity: sensor.last_boot
+            type: state-label
+            style: 
+              {
+                top: 65%,
+                left: 6.1%,
+                color: "rgba(255, 255, 255, 0.3)",
+                font-size: 1.3vw,
+              }
+
           # Button Card
           - type: custom:button-card
             entity: input_boolean.test
@@ -156,7 +186,7 @@ views:
           # test
           - type: custom:button-card
             entity: input_boolean.test
-            name: test
+            name: 吸顶灯
             icon: mdi:fire
             show_icon: true
             style: |
@@ -171,16 +201,17 @@ views:
               card:
                 - width: 10vw
                 - height: 10vw
-              grid:
-                - grid-template-areas: '"i" "n" "s"'
-                - grid-template-columns: 1fr
-                - grid-template-rows: 1fr min-content min-content
+              # grid:
+              #   - grid-template-areas: '"i" "n" "s"'
+              #   - grid-template-columns: 1fr
+              #   - grid-template-rows: 1fr min-content min-content
               icon:
-                - margin-top: -50%
-                - margin-left: -50%
+                - margin-top: -25%
+                - margin-left: -55%
               name:
-                - margin-top: -30%
-                - margin-left: -50%
+                - justify-self: start
+                - padding-left: 0.8vw
+                - padding-bottom: 2px
                 - font-size: 1.5vw
                 - font-weight: 600
               state:
