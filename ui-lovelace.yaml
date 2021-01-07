@@ -218,6 +218,10 @@ views:
                 - justify-self: start
                 - padding-left: 1px
             state:
+              - value: "on"
+                styles:
+                  card:
+                    - filter: opacity(90%)
               - value: "off"
                 styles:
                   card:
