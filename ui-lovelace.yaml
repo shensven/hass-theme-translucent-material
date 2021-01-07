@@ -96,32 +96,119 @@ views:
               系统负载
 
           # System Load Average
+          # - entity: sensor.load_1m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 6.1%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
+          # - entity: sensor.load_5m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 10.7%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
+          # - entity: sensor.load_15m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 15.1%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
+
           - entity: sensor.load_1m
-            type: state-label
-            style:
-              {
-                top: 35%,
-                left: 6.1%,
-                color: "rgba(255, 255, 255, 0.3)",
-                font-size: 1.3vw,
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 35%;
+                left: 12.6%;
               }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
+              }
+
           - entity: sensor.load_5m
-            type: state-label
-            style:
-              {
-                top: 35%,
-                left: 10.7%,
-                color: "rgba(255, 255, 255, 0.3)",
-                font-size: 1.3vw,
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 42%;
+                left: 12.6%;
               }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
+              }
+
           - entity: sensor.load_15m
-            type: state-label
-            style:
-              {
-                top: 35%,
-                left: 15.1%,
-                color: "rgba(255, 255, 255, 0.3)",
-                font-size: 1.3vw,
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 49%;
+                left: 12.6%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
               }
 
           # Last Boot Title
