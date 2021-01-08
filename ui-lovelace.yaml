@@ -5,6 +5,10 @@ views:
     cards:
       # Main Backgrond
       - type: picture-elements
+        style: |
+          ha-card {
+            border-radius:0;
+          }
         image: local/bg.png
         elements:
           # markdown fix
@@ -33,7 +37,7 @@ views:
             style: |
               :host {
                 top: 9%;
-                left: 11.3%;
+                left: 11%;
               }
               ha-card {
                 font-size: 5.41vw;
@@ -57,7 +61,7 @@ views:
             style: |
               :host {
                 top: 15%;
-                left: 11.3%;
+                left: 11%;
               }
               ha-card {
                 font-size: 1.3vw;
@@ -81,7 +85,7 @@ views:
             style: |
               :host {
                 top: 30%;
-                left: 7.7%;
+                left: 5.7%;
               }
               ha-card {
                 font-size: 1.3vw;
@@ -93,7 +97,7 @@ views:
                 pointer-events: none;
               }
             content: >
-              系统负载
+              1分钟负载
 
           # System Load Average
           # - entity: sensor.load_1m
@@ -139,64 +143,6 @@ views:
             style: |
               :host {
                 top: 35%;
-                left: 12.6%;
-              }
-              ha-card {
-                font-size: 1.3vw;
-                box-shadow: none;
-                background: none;
-              }
-              bar-card-contentbar {
-                background: rgba(255, 255, 255, 0.3)
-              }
-              .contentbar-direction-right {
-                flex-direction: column;
-              }
-
-          - entity: sensor.load_5m
-            type: custom:bar-card
-            positions:
-              icon: "off"
-              name: "off"
-              indicator: "off"
-            width: 15vw
-            # title: Load 1m
-            serverity:
-              - color: red
-                from: 0
-                to: 0.1
-            style: |
-              :host {
-                top: 42%;
-                left: 12.6%;
-              }
-              ha-card {
-                font-size: 1.3vw;
-                box-shadow: none;
-                background: none;
-              }
-              bar-card-contentbar {
-                background: rgba(255, 255, 255, 0.3)
-              }
-              .contentbar-direction-right {
-                flex-direction: column;
-              }
-
-          - entity: sensor.load_15m
-            type: custom:bar-card
-            positions:
-              icon: "off"
-              name: "off"
-              indicator: "off"
-            width: 15vw
-            # title: Load 1m
-            serverity:
-              - color: red
-                from: 0
-                to: 0.1
-            style: |
-              :host {
-                top: 49%;
                 left: 12.6%;
               }
               ha-card {
@@ -264,8 +210,8 @@ views:
                 ]]]
             styles:
               card:
-                - width: 10vw
-                - height: 10vw
+                - width: 9.5vw
+                - height: 9.5vw
               custom_fields:
                 icon_hue:
                   [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
@@ -279,15 +225,15 @@ views:
             style: |
               :host {
                 top: 20.35%; 
-                left: 42.31%;
+                left: 41%;
               }
               ha-card {
                 box-shadow: none;
               }
             styles:
               card:
-                - width: 10vw
-                - height: 10vw
+                - width: 9.5vw
+                - height: 9.5vw
               # grid:
               #   - grid-template-areas: '"i" "n" "s"'
               #   - grid-template-columns: 1fr
