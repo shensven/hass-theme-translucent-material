@@ -1,73 +1,317 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
+title: Home
+views:
+  - panel: true
+    path: translucent_material_view
+    cards:
+      # Main Backgrond
+      - type: picture-elements
+        image: local/bg.png
+        elements:
+          # markdown fix
+          - type: custom:hui-element
+            card_type: markdown
+            style: { opacity: 0 }
+            content: preload
 
-# Text to speech
-tts:
-  - platform: google_translate
+          # Sidebar Background
+          - type: image
+            style:
+              {
+                top: 49.24%,
+                left: 10.6%,
+                width: 21.5%,
+                border-right: "1.5px solid rgba(58,69,73,0.2)",
+              }
+            image: local/sidebar.png
+            tap_action:
+              action: none
+            hold_action:
+              action: none
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+          # Sidebar Clock
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 9%;
+                left: 11.3%;
+              }
+              ha-card {
+                font-size: 5.41vw;
+                font-weight: 200;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              {{ states('sensor.time') }}
+            tap_action:
+              action: none
+            hold_action:
+              action: none
 
-frontend:
-  themes: !include_dir_merge_named themes
+          # Sidebar Full Date
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 15%;
+                left: 11.3%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                font-weight: 600;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.3);
+                pointer-events: none;
+              }
+            content: >
+              {{ states('sensor.date_string') }}
+            tap_action:
+              action: none
+            hold_action:
+              action: none
 
-lovelace:
-  mode: yaml
-  resources:
-    - url: /hacsfiles/lovelace-card-mod/card-mod.js
-      type: module
-    - url: /hacsfiles/lovelace-hui-element/hui-element.js
-      type: module
-    - url: /hacsfiles/button-card/button-card.js
-      type: module
-    - url: /hacsfiles/bar-card/bar-card.js
-      type: module
+          # System Load Average Title
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 30%;
+                left: 7.7%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              系统负载
 
-sensor:
-  - platform: time_date
-    display_options:
-      - "time"
-      - "date"
-      - "date_time"
-      - "date_time_utc"
-      - "date_time_iso"
-      - "time_date"
-      - "time_utc"
-      - "beat"
+          # System Load Average
+          # - entity: sensor.load_1m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 6.1%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
+          # - entity: sensor.load_5m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 10.7%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
+          # - entity: sensor.load_15m
+          #   type: state-label
+          #   style:
+          #     {
+          #       top: 35%,
+          #       left: 15.1%,
+          #       color: "rgba(255, 255, 255, 0.3)",
+          #       font-size: 1.3vw,
+          #     }
 
-  - platform: template
-    sensors:
-      week:
-        value_template: >
-          {% set weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"] %}
-          {{ weeks[now().weekday()] }}
+          - entity: sensor.load_1m
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 35%;
+                left: 12.6%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
+              }
 
-      month:
-        value_template: >
-          {{ now().strftime('%m') }}
+          - entity: sensor.load_5m
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 42%;
+                left: 12.6%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
+              }
 
-      day:
-        value_template: >
-          {{ now().strftime('%d') }}
+          - entity: sensor.load_15m
+            type: custom:bar-card
+            positions:
+              icon: "off"
+              name: "off"
+              indicator: "off"
+            width: 15vw
+            # title: Load 1m
+            serverity:
+              - color: red
+                from: 0
+                to: 0.1
+            style: |
+              :host {
+                top: 49%;
+                left: 12.6%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              bar-card-contentbar {
+                background: rgba(255, 255, 255, 0.3)
+              }
+              .contentbar-direction-right {
+                flex-direction: column;
+              }
 
-      date_string:
-        friendly_name: "Full Date"
-        value_template: "{{ now().year }}-{{ states('sensor.month') }}-{{ states('sensor.day') }} / {{ states('sensor.week') }}"
+          # Last Boot Title
+          - type: custom:hui-markdown-card
+            style: |
+              :host {
+                top: 60%;
+                left: 7.7%;
+              }
+              ha-card {
+                font-size: 1.3vw;
+                box-shadow: none;
+                background: none;
+              }
+              ha-card.type-custom-hui-markdown-card {
+                color: rgba(255, 255, 255, 0.7);
+                pointer-events: none;
+              }
+            content: >
+              上次重启
 
-      last_boot_date_string:
-        friendly_name: "Last Boot"
-        value_template: '{{ states.sensor.last_boot.state.split("T")[0] }}'
+          # Last Boot
+          - entity: sensor.last_boot_date_string
+            type: state-label
+            style:
+              {
+                top: 65%,
+                left: 8.4%,
+                color: "rgba(255, 255, 255, 0.3)",
+                font-size: 1.3vw,
+              }
 
-  - platform: systemmonitor
-    resources:
-      - type: processor_use
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: memory_use
-      - type: swap_use
-      - type: disk_use
-        arg: /
-      - type: last_boot
+          # Button Card
+          - type: custom:button-card
+            entity: input_boolean.test
+            name: hi
+            show_icon: true
+            style: |
+              :host {
+                top: 20.35%; 
+                left: 30.31%;
+              }
+              ha-card {
+                box-shadow: none;
+              }
+            custom_fields:
+              icon_hue: >
+                [[[
+                  const state = entity.state === 'on' ? 'animate' : null;
+                  return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
+                <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+                <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
+                ]]]
+            styles:
+              card:
+                - width: 10vw
+                - height: 10vw
+              custom_fields:
+                icon_hue:
+                  [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
+
+          # test
+          - type: custom:button-card
+            entity: input_boolean.test
+            name: 吸顶灯
+            icon: mdi:fire
+            show_icon: true
+            style: |
+              :host {
+                top: 20.35%; 
+                left: 42.31%;
+              }
+              ha-card {
+                box-shadow: none;
+              }
+            styles:
+              card:
+                - width: 10vw
+                - height: 10vw
+              # grid:
+              #   - grid-template-areas: '"i" "n" "s"'
+              #   - grid-template-columns: 1fr
+              #   - grid-template-rows: 1fr min-content min-content
+              icon:
+                - margin-top: -25%
+                - margin-left: -55%
+              name:
+                - justify-self: start
+                - padding-left: 0.8vw
+                - padding-bottom: 2px
+                - font-size: 1.5vw
+                - font-weight: 600
+              state:
+                - justify-self: start
+                - padding-left: 1px
+            state:
+              - value: "on"
+                styles:
+                  card:
+                    - filter: opacity(90%)
+              - value: "off"
+                styles:
+                  card:
+                    - filter: opacity(50%)
+                  icon:
+                    - filter: grayscale(100%)
