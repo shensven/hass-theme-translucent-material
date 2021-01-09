@@ -18,7 +18,23 @@ views:
             content: preload
 
           # Sidebar Background
-          - type: image
+          # - type: image
+          #   style:
+          #     {
+          #       top: 49.24%,
+          #       left: 10.6%,
+          #       width: 21.5%,
+          #       border-right: "1.5px solid rgba(58,69,73,0.2)",
+          #     }
+          #   image: local/sidebar.png
+          #   tap_action:
+          #     action: none
+          #   hold_action:
+          #     action: none
+
+          - type: custom:hui-element
+            element_type: image
+            image: local/sidebar.png
             style:
               {
                 top: 49.24%,
@@ -26,11 +42,6 @@ views:
                 width: 21.5%,
                 border-right: "1.5px solid rgba(58,69,73,0.2)",
               }
-            image: local/sidebar.png
-            tap_action:
-              action: none
-            hold_action:
-              action: none
 
           # Sidebar Clock
           - type: custom:hui-markdown-card
@@ -81,81 +92,67 @@ views:
               action: none
 
           # System Load Average Title
-          - type: custom:hui-markdown-card
-            style: |
-              :host {
-                top: 30%;
-                left: 5.7%;
-              }
-              ha-card {
-                font-size: 1.3vw;
-                box-shadow: none;
-                background: none;
-              }
-              ha-card.type-custom-hui-markdown-card {
-                color: rgba(255, 255, 255, 0.7);
-                pointer-events: none;
-              }
-            content: >
-              1分钟负载
-
-          # System Load Average
+          # - type: custom:hui-markdown-card
+          #   style: |
+          #     :host {
+          #       top: 30%;
+          #       left: 5.7%;
+          #     }
+          #     ha-card {
+          #       font-size: 1.3vw;
+          #       box-shadow: none;
+          #       background: none;
+          #     }
+          #     ha-card.type-custom-hui-markdown-card {
+          #       color: rgba(255, 255, 255, 0.7);
+          #       pointer-events: none;
+          #     }
+          #   content: >
+          #     1分钟负载
           # - entity: sensor.load_1m
-          #   type: state-label
-          #   style:
-          #     {
-          #       top: 35%,
-          #       left: 6.1%,
-          #       color: "rgba(255, 255, 255, 0.3)",
-          #       font-size: 1.3vw,
+          #   type: custom:bar-card
+          #   positions:
+          #     icon: "off"
+          #     name: "outside"
+          #     indicator: "inside"
+          #   name: 1分钟负载
+          #   # width: 11vw
+          #   width: 90%
+          #   height: 2em
+          #   # serverity:
+          #   #   - color: red
+          #   #     from: 0
+          #   #     to: 0.1
+          #   style: |
+          #     :host {
+          #       top: 40%;
+          #       left: 11.6%;
           #     }
-          # - entity: sensor.load_5m
-          #   type: state-label
-          #   style:
-          #     {
-          #       top: 35%,
-          #       left: 10.7%,
-          #       color: "rgba(255, 255, 255, 0.3)",
-          #       font-size: 1.3vw,
+          #     ha-card {
+          #       font-size: 1.3vw;
+          #       box-shadow: none;
+          #       background: ;
           #     }
-          # - entity: sensor.load_15m
-          #   type: state-label
-          #   style:
-          #     {
-          #       top: 35%,
-          #       left: 15.1%,
-          #       color: "rgba(255, 255, 255, 0.3)",
-          #       font-size: 1.3vw,
+          #     bar-card-value {
+          #       margin-right: auto;
+          #     }
+          #     bar-card-contentbar {
+          #       background: rgba(255, 255, 255, 0.3)
+          #     }
+          #     bar-card-name {
+          #       color: rgba(0, 0, 0, 0.3);
+          #     }
+          #     .contentbar-direction-right {
+          #       flex-direction: column;
           #     }
 
-          - entity: sensor.load_1m
-            type: custom:bar-card
-            positions:
-              icon: "off"
-              name: "off"
-              indicator: "off"
-            width: 15vw
-            # title: Load 1m
-            serverity:
-              - color: red
-                from: 0
-                to: 0.1
-            style: |
-              :host {
-                top: 35%;
-                left: 12.6%;
-              }
-              ha-card {
-                font-size: 1.3vw;
-                box-shadow: none;
-                background: none;
-              }
-              bar-card-contentbar {
-                background: rgba(255, 255, 255, 0.3)
-              }
-              .contentbar-direction-right {
-                flex-direction: column;
-              }
+          # Load 1m
+          - type: "custom:hui-element"
+            card_type: entities
+            entities:
+              - entity: sensor.load_1m
+              - entity: sensor.load_5m
+            style: { top: 30%, left: 10% }
 
           # Last Boot Title
           - type: custom:hui-markdown-card
