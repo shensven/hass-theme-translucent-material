@@ -33,14 +33,15 @@ views:
             hold_action:
               action: none
 
-          # Siderbar Card
+          # Sidebar Card
           - type: custom:hui-element
-            style: {
+            style:
+              {
                 top: 30%,
                 left: 10.6%,
                 width: 18vw,
                 --ha-card-box-shadow: none,
-                # --card-background-color: none,
+                --card-background-color: "rgba(255,255,255,0.3)",
               }
             card_type: vertical-stack
             cards:
@@ -52,7 +53,13 @@ views:
                     font-size: 5.41vw;
                     font-weight: 100;
                     text-align: center;
+                    color: red;
                   }
+                  ha-card > ha-markdown.no-header {
+                    padding-top: 5.41vw;
+                    padding-bottom: 5.41vw; 
+                  }
+
                 # Sidebar Full Date
               - type: markdown
                 content: "{{ states('sensor.date_string') }}"
@@ -61,11 +68,66 @@ views:
                     font-size: 1.3vw;
                     font-weight: 600;
                     text-align: center;
-                    padding-top: 0px;
+                    color: blue;
                   }
                   ha-card > ha-markdown.no-header {
-                    padding-top: 0px;
+                    padding-top: 1.3vw;
+                    padding-bottom: 1.3vw;
+                    margin-top: -6vw;
                   }
+
+              # System States
+              - type: entities
+                entities:
+                  # Laod 1m
+                  - entity: sensor.load_1m
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 1分钟负载
+                    width: 40%
+                    height: 1.9vw
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+
+                  # Load 5m
+                  - entity: sensor.load_5m
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 5分钟负载
+                    width: 40%
+                    height: 1.9vw
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
 
           # Button Card
           - type: custom:button-card
