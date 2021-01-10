@@ -3,7 +3,7 @@ views:
   - panel: true
     path: translucent_material_view
     cards:
-      # Main Backgrond
+      # Main Backgrond Image
       - type: picture-elements
         style: |
           ha-card {
@@ -17,21 +17,7 @@ views:
             style: { opacity: 0 }
             content: preload
 
-          # Sidebar Background
-          # - type: image
-          #   style:
-          #     {
-          #       top: 49.24%,
-          #       left: 10.6%,
-          #       width: 21.5%,
-          #       border-right: "1.5px solid rgba(58,69,73,0.2)",
-          #     }
-          #   image: local/sidebar.png
-          #   tap_action:
-          #     action: none
-          #   hold_action:
-          #     action: none
-
+          # Sidebar Backgrong Image
           - type: custom:hui-element
             element_type: image
             image: local/sidebar.png
@@ -42,147 +28,44 @@ views:
                 width: 21.5%,
                 border-right: "1.5px solid rgba(58,69,73,0.2)",
               }
-
-          # Sidebar Clock
-          - type: custom:hui-markdown-card
-            style: |
-              :host {
-                top: 9%;
-                left: 11%;
-              }
-              ha-card {
-                font-size: 5.41vw;
-                font-weight: 200;
-                box-shadow: none;
-                background: none;
-              }
-              ha-card.type-custom-hui-markdown-card {
-                color: rgba(255, 255, 255, 0.7);
-                pointer-events: none;
-              }
-            content: >
-              {{ states('sensor.time') }}
             tap_action:
               action: none
             hold_action:
               action: none
 
-          # Sidebar Full Date
-          - type: custom:hui-markdown-card
-            style: |
-              :host {
-                top: 15%;
-                left: 11%;
+          # Siderbar Card
+          - type: custom:hui-element
+            style: {
+                top: 30%,
+                left: 10.6%,
+                width: 18vw,
+                --ha-card-box-shadow: none,
+                # --card-background-color: none,
               }
-              ha-card {
-                font-size: 1.3vw;
-                font-weight: 600;
-                box-shadow: none;
-                background: none;
-              }
-              ha-card.type-custom-hui-markdown-card {
-                color: rgba(255, 255, 255, 0.3);
-                pointer-events: none;
-              }
-            content: >
-              {{ states('sensor.date_string') }}
-            tap_action:
-              action: none
-            hold_action:
-              action: none
-
-          # System Load Average Title
-          # - type: custom:hui-markdown-card
-          #   style: |
-          #     :host {
-          #       top: 30%;
-          #       left: 5.7%;
-          #     }
-          #     ha-card {
-          #       font-size: 1.3vw;
-          #       box-shadow: none;
-          #       background: none;
-          #     }
-          #     ha-card.type-custom-hui-markdown-card {
-          #       color: rgba(255, 255, 255, 0.7);
-          #       pointer-events: none;
-          #     }
-          #   content: >
-          #     1分钟负载
-          # - entity: sensor.load_1m
-          #   type: custom:bar-card
-          #   positions:
-          #     icon: "off"
-          #     name: "outside"
-          #     indicator: "inside"
-          #   name: 1分钟负载
-          #   # width: 11vw
-          #   width: 90%
-          #   height: 2em
-          #   # serverity:
-          #   #   - color: red
-          #   #     from: 0
-          #   #     to: 0.1
-          #   style: |
-          #     :host {
-          #       top: 40%;
-          #       left: 11.6%;
-          #     }
-          #     ha-card {
-          #       font-size: 1.3vw;
-          #       box-shadow: none;
-          #       background: ;
-          #     }
-          #     bar-card-value {
-          #       margin-right: auto;
-          #     }
-          #     bar-card-contentbar {
-          #       background: rgba(255, 255, 255, 0.3)
-          #     }
-          #     bar-card-name {
-          #       color: rgba(0, 0, 0, 0.3);
-          #     }
-          #     .contentbar-direction-right {
-          #       flex-direction: column;
-          #     }
-
-          # Load 1m
-          - type: "custom:hui-element"
-            card_type: entities
-            entities:
-              - entity: sensor.load_1m
-              - entity: sensor.load_5m
-            style: { top: 30%, left: 10% }
-
-          # Last Boot Title
-          - type: custom:hui-markdown-card
-            style: |
-              :host {
-                top: 60%;
-                left: 7.7%;
-              }
-              ha-card {
-                font-size: 1.3vw;
-                box-shadow: none;
-                background: none;
-              }
-              ha-card.type-custom-hui-markdown-card {
-                color: rgba(255, 255, 255, 0.7);
-                pointer-events: none;
-              }
-            content: >
-              上次重启
-
-          # Last Boot
-          - entity: sensor.last_boot_date_string
-            type: state-label
-            style:
-              {
-                top: 65%,
-                left: 8.4%,
-                color: "rgba(255, 255, 255, 0.3)",
-                font-size: 1.3vw,
-              }
+            card_type: vertical-stack
+            cards:
+              # Sidebar Clock
+              - type: markdown
+                content: "{{ states('sensor.time') }}"
+                style: |
+                  ha-card {
+                    font-size: 5.41vw;
+                    font-weight: 100;
+                    text-align: center;
+                  }
+                # Sidebar Full Date
+              - type: markdown
+                content: "{{ states('sensor.date_string') }}"
+                style: |
+                  ha-card {
+                    font-size: 1.3vw;
+                    font-weight: 600;
+                    text-align: center;
+                    padding-top: 0px;
+                  }
+                  ha-card > ha-markdown.no-header {
+                    padding-top: 0px;
+                  }
 
           # Button Card
           - type: custom:button-card
