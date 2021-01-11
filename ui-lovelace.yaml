@@ -37,7 +37,7 @@ views:
           - type: custom:hui-element
             style:
               {
-                top: 30%,
+                top: 35%,
                 left: 10.6%,
                 width: 18vw,
                 --ha-card-box-shadow: none,
@@ -73,7 +73,7 @@ views:
                   ha-card > ha-markdown.no-header {
                     padding-top: 1.3vw;
                     padding-bottom: 1.3vw;
-                    margin-top: -6vw;
+                    margin-top: -5.5vw;
                   }
 
               # System States
@@ -98,6 +98,214 @@ views:
                       - color: red
                         from: 0.9
                         to: 1
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+                  # Laod 5m
+                  - entity: sensor.load_5m
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 5分钟负载
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 1
+                    severity:
+                      - color: red
+                        from: 0.9
+                        to: 1
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+                  # Laod 15m
+                  - entity: sensor.load_15m
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 15分钟负载
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 1
+                    severity:
+                      - color: red
+                        from: 0.9
+                        to: 1
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+                  # Processor Use
+                  - entity: sensor.processor_use_percent
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: SoC 使用率
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 100
+                    severity:
+                      - color: red
+                        from: 80
+                        to: 100
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+                  # Memory Use
+                  - entity: sensor.memory_use
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 内存使用量
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 1970
+                    unit_of_measurement: MB
+                    severity:
+                      - color: red
+                        from: 1536
+                        to: 1790
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+
+                  # Disk Use
+                  - entity: sensor.disk_use
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 闪存使用量
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 30.8
+                    unit_of_measurement: GB
+                    severity:
+                      - color: red
+                        from: 20
+                        to: 30.8
+                    style: |
+                      ha-card {
+                        color: aqua;
+                      }
+                      bar-card-currentbar,
+                      bar-card-backgroundbar,
+                      bar-card-contentbar,
+                      bar-card-targetbar,
+                      bar-card-animationbar {
+                        border-radius: 3px;
+                      }
+                      bar-card-name.name-outside {
+                        margin-left: 0px;
+                      }
+
+                  # Swap
+                  - entity: sensor.swap_use
+                    type: "custom:bar-card"
+                    entity_row: true
+                    positions:
+                      name: outside
+                      icon: "off"
+                      indicator: "off"
+                      minmax: "off"
+                      value: inside
+                    name: 交换分区
+                    width: 45%
+                    height: 1.9vw
+                    min: 0
+                    max: 492
+                    unit_of_measurement: MB
+                    severity:
+                      - color: red
+                        from: 300
+                        to: 492
                     style: |
                       ha-card {
                         color: aqua;
