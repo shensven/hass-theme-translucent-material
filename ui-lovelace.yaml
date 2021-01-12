@@ -79,6 +79,41 @@ views:
               # System States
               - type: entities
                 entities:
+                  - type: "custom:stack-in-card"
+                    mode: horizontal
+                    cards:
+                      - type: markdown
+                        content: 平均负载
+                        style: |
+                          ha-markdown.no-header {
+                            # padding-bottom: 0;
+                            # padding-left: 0;
+                            # padding-right: 0;
+                            # padding-top: 0;
+                            padding: 0 !important;
+                          }
+                      - type: glance
+                        entities:
+                          - entity: sensor.load_1m
+                          - entity: sensor.load_5m
+                          - entity: sensor.load_15m
+                        show_icon: false
+                        show_state: true
+                        show_name: false
+                        height: 1.9vw
+                        style: |
+                          div.entities.no-header {
+                            # padding-bottom: 0;
+                            # padding-left: 0;
+                            # padding-right: 0;
+                            # padding-top: 0;
+                            padding: 0 !important;
+                            margin-left: -20px;
+                          }
+                          div.entity {
+                            margin-bottom: 0;
+                          }
+
                   # Laod 1m
                   - entity: sensor.load_1m
                     type: "custom:bar-card"
@@ -249,7 +284,6 @@ views:
                       bar-card-name.name-outside {
                         margin-left: 0px;
                       }
-
 
                   # Disk Use
                   - entity: sensor.disk_use
