@@ -79,39 +79,70 @@ views:
               # System States
               - type: entities
                 entities:
-                  - type: "custom:stack-in-card"
+                  # test2
+                  - type: custom:stack-in-card
+                    style: |
+                      ha-card {
+                        border-radius: 0;
+                        background: none;
+                      }
                     mode: horizontal
                     cards:
                       - type: markdown
-                        content: 平均负载
+                        content: 负载
                         style: |
-                          ha-markdown.no-header {
-                            # padding-bottom: 0;
-                            # padding-left: 0;
-                            # padding-right: 0;
-                            # padding-top: 0;
-                            padding: 0 !important;
+                          ha-markdown.no-header{
+                            padding-top: 0px;
+                            padding: 0;
                           }
-                      - type: glance
-                        entities:
-                          - entity: sensor.load_1m
-                          - entity: sensor.load_5m
-                          - entity: sensor.load_15m
-                        show_icon: false
-                        show_state: true
-                        show_name: false
+                      - entities:
+                          - sensor.load_1m
+                          - sensor.load_5m
+                          - sensor.load_15m
+                        type: "custom:bar-card"
+                        entity_row: true
+                        stack: horizontal
+                        direction: up
+                        positions:
+                          name: "off"
+                          icon: "off"
+                          indicator: "off"
+                          minmax: "off"
+                          value: inside
+                        name: test
+                        width: 0%
                         height: 1.9vw
+                        min: 0
+                        max: 1
+                        severity:
+                          - color: red
+                            from: 0.9
+                            to: 1
                         style: |
-                          div.entities.no-header {
-                            # padding-bottom: 0;
-                            # padding-left: 0;
-                            # padding-right: 0;
-                            # padding-top: 0;
-                            padding: 0 !important;
-                            margin-left: -20px;
+                          ha-card {
+                            color: aqua;
                           }
-                          div.entity {
-                            margin-bottom: 0;
+                          bar-card-currentbar,
+                          bar-card-backgroundbar,
+                          bar-card-contentbar,
+                          bar-card-targetbar,
+                          bar-card-animationbar {
+                            border-radius: 3px;
+                          }
+                          bar-card-name.name-outside {
+                            margin-left: 0px;
+                          }
+                          bar-card-value {
+                            background: red;
+                            margin: 0px;
+                            # padding-top: 0.4vw;
+                            padding-right: 4px;
+                            # padding-bottom: 0.4vw;
+                            padding-left: 4px;
+                            border-radius: 3px;
+                          }
+                          bar-card-value.value-direction-up {
+                            margin-top: 0;
                           }
 
                   # Laod 1m
