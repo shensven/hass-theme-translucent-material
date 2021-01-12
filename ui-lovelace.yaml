@@ -102,11 +102,10 @@ views:
                         height: 1.9vw
                         min: 0
                         max: 1
-                        severity:
-                          - color: red
-                            from: 0.9
-                            to: 1
                         style: |
+                          #root > bar-card:nth-child(2) {
+                            margin: 0 0 0 -50px;
+                          }
                           ha-card {
                             color: aqua;
                           }
@@ -117,8 +116,11 @@ views:
                           bar-card-animationbar {
                             border-radius: 3px;
                           }
+                          bar-card-name {
+                            margin: 0;
+                          }
                           bar-card-name.name-outside {
-                            margin-left: 0px;
+                            margin-left: 0;
                           }
 
                       - entities:
