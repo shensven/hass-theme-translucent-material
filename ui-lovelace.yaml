@@ -37,7 +37,7 @@ views:
           - type: custom:hui-element
             style:
               {
-                top: 35%,
+                top: 40%,
                 left: 10.6%,
                 width: 18vw,
                 --ha-card-box-shadow: none,
