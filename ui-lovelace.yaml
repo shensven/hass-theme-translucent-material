@@ -37,7 +37,7 @@ views:
           - type: custom:hui-element
             style:
               {
-                top: 40%,
+                top: 34.6%,
                 left: 10.6%,
                 width: 18vw,
                 --ha-card-box-shadow: none,
@@ -85,6 +85,7 @@ views:
                       ha-card {
                         border-radius: 0;
                         background: none;
+                        margin-top: 20px;
                       }
                     mode: horizontal
                     cards:
@@ -160,6 +161,7 @@ views:
                             margin-left: 0;
                           }
                           bar-card-value {
+                            margin-right: auto;
                             color: rgba(255,255,255,0.7);
                           }
 
@@ -173,7 +175,7 @@ views:
                       indicator: "off"
                       minmax: "off"
                       value: inside
-                    name: SoC 使用率
+                    name: 处理器
                     width: 45%
                     height: 1.9vw
                     min: 0
@@ -208,7 +210,7 @@ views:
                       indicator: "off"
                       minmax: "off"
                       value: inside
-                    name: 内存使用量
+                    name: 内存
                     width: 45%
                     height: 1.9vw
                     min: 0
@@ -244,7 +246,7 @@ views:
                       indicator: "off"
                       minmax: "off"
                       value: inside
-                    name: 闪存使用量
+                    name: 闪存
                     width: 45%
                     height: 1.9vw
                     min: 0
