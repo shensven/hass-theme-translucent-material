@@ -1,4 +1,4 @@
-title: Home
+title: Home197-iPad-View
 views:
   - panel: true
     path: translucent_material_view
@@ -23,10 +23,10 @@ views:
             image: local/sidebar_iPad_mini_4.png
             style:
               {
-                top: 50%,
+                top: 49.24%,
+                # top: 50%,
                 left: 10.6%,
                 width: 21.5%,
-                height: 100%,
                 border-right: "1.5px solid rgba(58,69,73,0.2)",
               }
             tap_action:
@@ -311,8 +311,8 @@ views:
 
           # Button Card
           - type: custom:button-card
-            entity: input_boolean.test
-            name: hi
+            entity: light.36647026e09806c02f19
+            name: 吸顶灯
             show_icon: true
             style: |
               :host {
