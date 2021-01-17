@@ -9,7 +9,7 @@ views:
           ha-card {
             border-radius:0;
           }
-        image: local/bg.png
+        image: local/bg_iPad_mini_4.png
         elements:
           # markdown fix
           - type: custom:hui-element
@@ -20,12 +20,13 @@ views:
           # Sidebar Backgrong Image
           - type: custom:hui-element
             element_type: image
-            image: local/sidebar.png
+            image: local/sidebar_iPad_mini_4.png
             style:
               {
-                top: 49.24%,
+                top: 50%,
                 left: 10.6%,
                 width: 21.5%,
+                height: 100%,
                 border-right: "1.5px solid rgba(58,69,73,0.2)",
               }
             tap_action:
