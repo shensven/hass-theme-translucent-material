@@ -119,6 +119,7 @@ views:
                           }
                           bar-card-name {
                             margin: 0;
+                            font-size: 1.4vw;
                           }
                           bar-card-name.name-outside {
                             margin-left: 0;
@@ -163,6 +164,7 @@ views:
                           bar-card-value {
                             margin-right: auto;
                             color: rgba(255,255,255,0.7);
+                            font-size: 1.4vw;
                           }
 
                   # Processor Use
@@ -195,9 +197,11 @@ views:
                       }
                       bar-card-name.name-outside {
                         margin-left: 0px;
+                        font-size: 1.4vw;
                       }
                       bar-card-value {
                         color: rgba(255,255,255,0.7);
+                        font-size: 1.4vw;
                       }
 
                   # Memory Use
@@ -231,9 +235,11 @@ views:
                       }
                       bar-card-name.name-outside {
                         margin-left: 0px;
+                        font-size: 1.4vw;
                       }
                       bar-card-value {
                         color: rgba(255,255,255,0.7);
+                        font-size: 1.4vw;
                       }
 
                   # Disk Use
@@ -267,9 +273,11 @@ views:
                       }
                       bar-card-name.name-outside {
                         margin-left: 0px;
+                        font-size: 1.4vw;
                       }
                       bar-card-value {
                         color: rgba(255,255,255,0.7);
+                        font-size: 1.4vw;
                       }
 
                   # Swap
@@ -303,9 +311,11 @@ views:
                       }
                       bar-card-name.name-outside {
                         margin-left: 0px;
+                        font-size: 1.4vw;
                       }
                       bar-card-value {
                         color: rgba(255,255,255,0.7);
+                        font-size: 1.4vw;
                       }
 
           # Button Card
@@ -336,6 +346,7 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
+                - border-radius: 10%
               name:
                 - position: absolute
                 - bottom: 1px
@@ -373,6 +384,7 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
+                - border-radius: 10%
               name:
                 - position: absolute
                 - bottom: 1px
@@ -421,6 +433,7 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
+                - border-radius: 10%
               name:
                 - position: absolute
                 - bottom: 1px
@@ -469,6 +482,7 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
+                - border-radius: 10%
               name:
                 - position: absolute
                 - bottom: 1px
