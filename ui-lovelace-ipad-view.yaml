@@ -7,9 +7,9 @@ views:
       - type: picture-elements
         style: |
           ha-card {
-            border-radius:0;
+            border-radius: 0;
           }
-        image: local/bg_iPad_mini_4.png
+        image: local/bg.png
         elements:
           # markdown fix
           - type: custom:hui-element
@@ -20,9 +20,8 @@ views:
           # Sidebar Backgrong Image
           - type: custom:hui-element
             element_type: image
-            image: local/sidebar_iPad_mini_4.png
-            style:
-              {
+            image: local/sidebar.png
+            style: {
                 top: 49.24%,
                 # top: 50%,
                 left: 10.6%,
@@ -310,10 +309,13 @@ views:
                       }
 
           # Button Card
+
+          # test1
           - type: custom:button-card
             entity: light.36647026e09806c02f19
-            name: 吸顶灯
-            show_icon: true
+            name: 吸顶灯1
+            show_icon: false
+            show_name: true
             style: |
               :host {
                 top: 20.35%; 
@@ -334,14 +336,21 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
+              name:
+                - position: absolute
+                - bottom: 1px
+                - padding-left: 0.8vw
+                - padding-bottom: 0.4vw
+                - font-size: 1.5vw
+                - font-weight: 600
               custom_fields:
                 icon_hue:
                   [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
 
-          # test
+          # test2
           - type: custom:button-card
             entity: input_boolean.test
-            name: 吸顶灯
+            name: 吸顶灯2
             icon: mdi:fire
             show_icon: true
             style: |
@@ -356,10 +365,6 @@ views:
               card:
                 - width: 9.5vw
                 - height: 9.5vw
-              # grid:
-              #   - grid-template-areas: '"i" "n" "s"'
-              #   - grid-template-columns: 1fr
-              #   - grid-template-rows: 1fr min-content min-content
               icon:
                 - margin-top: -25%
                 - margin-left: -55%
