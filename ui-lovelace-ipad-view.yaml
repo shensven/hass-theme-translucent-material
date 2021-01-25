@@ -8,7 +8,8 @@ views:
         layout: horizontal
         min_columns: 1
         max_columns: 3
-        column_width: 300px
+        column_width: 245px
+        min_width: 245px
         card_options:
         cards:
           - type: custom:mod-card
@@ -42,22 +43,20 @@ views:
                       ]]]
                   styles:
                     card:
-                      # - width: 9.5vw
-                      # - height: 9.5vw
                       - border-radius: 10%
                     name:
                       - position: absolute
                       - bottom: 1px
-                      - padding-left: 0.8vw
-                      - padding-bottom: 0.4vw
-                      - font-size: 1.5vw
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
                         [
                           top: 11%,
                           left: 4.5%,
-                          width: 3.05vw,
+                          width: 32px,
                           position: absolute,
                         ]
                 # test2
@@ -81,22 +80,20 @@ views:
                       ]]]
                   styles:
                     card:
-                      # - width: 9.5vw
-                      # - height: 9.5vw
                       - border-radius: 10%
                     name:
                       - position: absolute
                       - bottom: 1px
-                      - padding-left: 0.8vw
-                      - padding-bottom: 0.4vw
-                      - font-size: 1.5vw
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
                         [
                           top: 11%,
                           left: 4.5%,
-                          width: 3.05vw,
+                          width: 32px,
                           position: absolute,
                         ]
                 # test3
@@ -120,22 +117,20 @@ views:
                       ]]]
                   styles:
                     card:
-                      # - width: 9.5vw
-                      # - height: 9.5vw
                       - border-radius: 10%
                     name:
                       - position: absolute
                       - bottom: 1px
-                      - padding-left: 0.8vw
-                      - padding-bottom: 0.4vw
-                      - font-size: 1.5vw
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
                         [
                           top: 11%,
                           left: 4.5%,
-                          width: 3.05vw,
+                          width: 32px,
                           position: absolute,
                         ]
                 # test4
@@ -159,21 +154,20 @@ views:
                       ]]]
                   styles:
                     card:
-                      # - width: 9.5vw
-                      # - height: 9.5vw
                       - border-radius: 10%
                     name:
                       - position: absolute
                       - bottom: 1px
-                      - padding-left: 0.8vw
-                      - padding-bottom: 0.4vw
-                      - font-size: 1.5vw
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
                         [
                           top: 11%,
                           left: 4.5%,
-                          width: 3.05vw,
+                          width: 32px,
                           position: absolute,
                         ]
+       
