@@ -16,6 +16,7 @@ views:
             style: |
               ha-card {
                 padding: 10px;
+                color: red;
               }
             card:
               type: grid
@@ -53,12 +54,18 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
-                        [
-                          top: 11%,
-                          left: 4.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
+                        [top: 11%, left: 4.5%, width: 32px, position: absolute]
+                  state:
+                    - value: "on"
+                      styles:
+                        card:
+                          - filter: opacity(90%)
+                    - value: "off"
+                      styles:
+                        card:
+                          - filter: opacity(50%)
+                        icon:
+                          - filter: grayscale(100%)
                 # test2
                 - type: custom:button-card
                   style: |
@@ -90,12 +97,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
-                        [
-                          top: 11%,
-                          left: 4.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
+                        [top: 11%, left: 4.5%, width: 32px, position: absolute]
                 # test3
                 - type: custom:button-card
                   style: |
@@ -127,12 +129,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
-                        [
-                          top: 11%,
-                          left: 4.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
+                        [top: 11%, left: 4.5%, width: 32px, position: absolute]
                 # test4
                 - type: custom:button-card
                   style: |
@@ -164,10 +161,4 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
-                        [
-                          top: 11%,
-                          left: 4.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
-       
+                        [top: 11%, left: 4.5%, width: 32px, position: absolute]
