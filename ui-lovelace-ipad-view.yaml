@@ -1,506 +1,179 @@
 title: Home197-iPad-View
+background: url("/local/bg.png")
 views:
   - panel: true
     path: translucent_material_view
     cards:
-      # Main Backgrond Image
-      - type: picture-elements
-        style: |
-          ha-card {
-            border-radius: 0;
-          }
-        image: local/bg.png
-        elements:
-          # markdown fix
-          - type: custom:hui-element
-            card_type: markdown
-            style: { opacity: 0 }
-            content: preload
-
-          # Sidebar Backgrong Image
-          - type: custom:hui-element
-            element_type: image
-            image: local/sidebar.png
-            style: {
-                top: 49.24%,
-                # top: 50%,
-                left: 10.6%,
-                width: 21.5%,
-                border-right: "1.5px solid rgba(58,69,73,0.2)",
-              }
-            tap_action:
-              action: none
-            hold_action:
-              action: none
-
-          # Sidebar Card
-          - type: custom:hui-element
-            style:
-              {
-                top: 34.6%,
-                left: 10.6%,
-                width: 18vw,
-                --ha-card-box-shadow: none,
-                --card-background-color: "rgba(255,255,255,0)",
-              }
-            card_type: vertical-stack
-            cards:
-              # Sidebar Clock
-              - type: markdown
-                content: "{{ states('sensor.time') }}"
-                style: |
-                  ha-card {
-                    font-size: 5.41vw;
-                    font-weight: 100;
-                    text-align: center;
-                    color: rgba(255,255,255,0.5);
-                  }
-                  ha-card > ha-markdown.no-header {
-                    padding-top: 5.41vw;
-                    padding-bottom: 5.41vw; 
-                  }
-
-              # Sidebar Full Date
-              - type: markdown
-                content: "{{ states('sensor.date_string') }}"
-                style: |
-                  ha-card {
-                    font-size: 1.3vw;
-                    font-weight: 600;
-                    text-align: center;
-                    color: rgba(255,255,255,0.5);
-                  }
-                  ha-card > ha-markdown.no-header {
-                    padding-top: 1.3vw;
-                    padding-bottom: 1.3vw;
-                    margin-top: -5.5vw;
-                  }
-
-              # System States
-              - type: entities
-                entities:
-                  # Load Average Title
-                  - type: custom:stack-in-card
-                    style: |
-                      ha-card {
-                        border-radius: 0;
-                        background: none;
-                        margin-top: 20px;
-                      }
-                    mode: horizontal
-                    cards:
-                      - entity: sensor.load_1m
-                        type: "custom:bar-card"
-                        entity_row: true
-                        positions:
-                          name: outside
-                          icon: "off"
-                          indicator: "off"
-                          minmax: "off"
-                          value: "off"
-                        name: 负载
-                        width: 0%
-                        height: 1.9vw
-                        min: 0
-                        max: 1
-                        style: |
-                          #root > bar-card:nth-child(1) {
-                            margin: 0 0 0 -10px;
-                          }
-                          ha-card {
-                            color: rgba(255,255,255,0.5);
-                          }
-                          bar-card-currentbar,
-                          bar-card-backgroundbar,
-                          bar-card-contentbar,
-                          bar-card-targetbar,
-                          bar-card-animationbar {
-                            border-radius: 3px;
-                          }
-                          bar-card-name {
-                            margin: 0;
-                            font-size: 1.4vw;
-                          }
-                          bar-card-name.name-outside {
-                            margin-left: 0;
-                          }
-
-                      # Load Average Value
-                      - entities:
-                          - sensor.load_1m
-                          - sensor.load_5m
-                          - sensor.load_15m
-                        type: "custom:bar-card"
-                        entity_row: true
-                        stack: horizontal
-                        direction: right
-                        positions:
-                          name: "off"
-                          icon: "off"
-                          indicator: "off"
-                          minmax: "off"
-                          value: inside
-                        name: test
-                        width: 10%
-                        height: 1.9vw
-                        min: 0
-                        max: 1
-                        color: "rgba(255,255,255,0.3)"
-                        style: |
-                          ha-card {
-                            color: rgba(255,255,255,0.5);
-                            margin-left: -3vw;
-                          }
-                          bar-card-currentbar,
-                          bar-card-backgroundbar,
-                          bar-card-contentbar,
-                          bar-card-targetbar,
-                          bar-card-animationbar {
-                            border-radius: 3px;
-                          }
-                          bar-card-name.name-outside {
-                            margin-left: 0;
-                          }
-                          bar-card-value {
-                            margin-right: auto;
-                            color: rgba(255,255,255,0.7);
-                            font-size: 1.4vw;
-                          }
-
-                  # Processor Use
-                  - entity: sensor.processor_use_percent
-                    type: "custom:bar-card"
-                    entity_row: true
-                    positions:
-                      name: outside
-                      icon: "off"
-                      indicator: "off"
-                      minmax: "off"
-                      value: inside
-                    name: 处理器
-                    width: 45%
-                    height: 1.9vw
-                    min: 0
-                    max: 100
-                    color: "rgba(255,255,255,0.3)"
-                    severity:
-                    style: |
-                      ha-card {
-                        color: rgba(255,255,255,0.5);
-                      }
-                      bar-card-currentbar,
-                      bar-card-backgroundbar,
-                      bar-card-contentbar,
-                      bar-card-targetbar,
-                      bar-card-animationbar {
-                        border-radius: 3px;
-                      }
-                      bar-card-name.name-outside {
-                        margin-left: 0px;
-                        font-size: 1.4vw;
-                      }
-                      bar-card-value {
-                        color: rgba(255,255,255,0.7);
-                        font-size: 1.4vw;
-                      }
-
-                  # Memory Use
-                  - entity: sensor.memory_use
-                    type: "custom:bar-card"
-                    entity_row: true
-                    positions:
-                      name: outside
-                      icon: "off"
-                      indicator: "off"
-                      minmax: "off"
-                      value: inside
-                    name: 内存
-                    width: 45%
-                    height: 1.9vw
-                    min: 0
-                    max: 1970
-                    unit_of_measurement: MB
-                    color: "rgba(255,255,255,0.3)"
-                    severity:
-                    style: |
-                      ha-card {
-                        color: rgba(255,255,255,0.5);
-                      }
-                      bar-card-currentbar,
-                      bar-card-backgroundbar,
-                      bar-card-contentbar,
-                      bar-card-targetbar,
-                      bar-card-animationbar {
-                        border-radius: 3px;
-                      }
-                      bar-card-name.name-outside {
-                        margin-left: 0px;
-                        font-size: 1.4vw;
-                      }
-                      bar-card-value {
-                        color: rgba(255,255,255,0.7);
-                        font-size: 1.4vw;
-                      }
-
-                  # Disk Use
-                  - entity: sensor.disk_use
-                    type: "custom:bar-card"
-                    entity_row: true
-                    positions:
-                      name: outside
-                      icon: "off"
-                      indicator: "off"
-                      minmax: "off"
-                      value: inside
-                    name: 闪存
-                    width: 45%
-                    height: 1.9vw
-                    min: 0
-                    max: 30.8
-                    unit_of_measurement: GB
-                    color: "rgba(255,255,255,0.3)"
-                    severity:
-                    style: |
-                      ha-card {
-                        color: rgba(255,255,255,0.5);
-                      }
-                      bar-card-currentbar,
-                      bar-card-backgroundbar,
-                      bar-card-contentbar,
-                      bar-card-targetbar,
-                      bar-card-animationbar {
-                        border-radius: 3px;
-                      }
-                      bar-card-name.name-outside {
-                        margin-left: 0px;
-                        font-size: 1.4vw;
-                      }
-                      bar-card-value {
-                        color: rgba(255,255,255,0.7);
-                        font-size: 1.4vw;
-                      }
-
-                  # Swap
-                  - entity: sensor.swap_use
-                    type: "custom:bar-card"
-                    entity_row: true
-                    positions:
-                      name: outside
-                      icon: "off"
-                      indicator: "off"
-                      minmax: "off"
-                      value: inside
-                    name: 交换分区
-                    width: 45%
-                    height: 1.9vw
-                    min: 0
-                    max: 492
-                    unit_of_measurement: MB
-                    color: "rgba(255,255,255,0.3)"
-                    severity:
-                    style: |
-                      ha-card {
-                        color: rgba(255,255,255,0.5);
-                      }
-                      bar-card-currentbar,
-                      bar-card-backgroundbar,
-                      bar-card-contentbar,
-                      bar-card-targetbar,
-                      bar-card-animationbar {
-                        border-radius: 3px;
-                      }
-                      bar-card-name.name-outside {
-                        margin-left: 0px;
-                        font-size: 1.4vw;
-                      }
-                      bar-card-value {
-                        color: rgba(255,255,255,0.7);
-                        font-size: 1.4vw;
-                      }
-
-          # Button Card
-
-          # test1
-          - type: custom:button-card
-            entity: light.36647026e09806c02f19
-            name: 吸顶灯1
-            show_icon: false
-            show_name: true
+      - type: custom:layout-card
+        layout: horizontal
+        min_columns: 1
+        max_columns: 3
+        column_width: 300px
+        card_options:
+        cards:
+          - type: custom:mod-card
             style: |
-              :host {
-                top: 20%; 
-                left: 30%;
-              }
               ha-card {
-                box-shadow: none;
+                padding: 10px;
               }
-            custom_fields:
-              icon_hue: >
-                [[[
-                  const state = entity.state === 'on' ? 'animate' : null;
-                  return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
-                <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
-                ]]]
-            styles:
-              card:
-                - width: 9.5vw
-                - height: 9.5vw
-                - border-radius: 10%
-              name:
-                - position: absolute
-                - bottom: 1px
-                - padding-left: 0.8vw
-                - padding-bottom: 0.4vw
-                - font-size: 1.5vw
-                - font-weight: 600
-              custom_fields:
-                icon_hue:
-                  [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
-
-          # test2
-          - type: custom:button-card
-            entity: light.36647026e09806c02f19
-            name: 吸顶灯2
-            show_icon: false
-            show_name: true
-            style: |
-              :host {
-                top: 20%; 
-                left: 40.5%;
-              }
-              ha-card {
-                box-shadow: none;
-              }
-            custom_fields:
-              icon_hue: >
-                [[[
-                  const state = entity.state === 'on' ? 'animate' : null;
-                  return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
-                <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
-                ]]]
-            styles:
-              card:
-                - width: 9.5vw
-                - height: 9.5vw
-                - border-radius: 10%
-              name:
-                - position: absolute
-                - bottom: 1px
-                - padding-left: 0.8vw
-                - padding-bottom: 0.4vw
-                - font-size: 1.5vw
-                - font-weight: 600
-              custom_fields:
-                icon_hue:
-                  [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - filter: opacity(90%)
-              - value: "off"
-                styles:
-                  card:
-                    - filter: opacity(50%)
-                  icon:
-                    - filter: grayscale(100%)
-
-          # test3
-          - type: custom:button-card
-            entity: light.36647026e09806c02f19
-            name: 吸顶灯3
-            show_icon: false
-            show_name: true
-            style: |
-              :host {
-                top: 36.8%; 
-                left: 30%;
-              }
-              ha-card {
-                box-shadow: none;
-              }
-            custom_fields:
-              icon_hue: >
-                [[[
-                  const state = entity.state === 'on' ? 'animate' : null;
-                  return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
-                <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
-                ]]]
-            styles:
-              card:
-                - width: 9.5vw
-                - height: 9.5vw
-                - border-radius: 10%
-              name:
-                - position: absolute
-                - bottom: 1px
-                - padding-left: 0.8vw
-                - padding-bottom: 0.4vw
-                - font-size: 1.5vw
-                - font-weight: 600
-              custom_fields:
-                icon_hue:
-                  [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - filter: opacity(90%)
-              - value: "off"
-                styles:
-                  card:
-                    - filter: opacity(50%)
-                  icon:
-                    - filter: grayscale(100%)
-
-          # test4
-          - type: custom:button-card
-            entity: light.36647026e09806c02f19
-            name: 吸顶灯4
-            show_icon: false
-            show_name: true
-            style: |
-              :host {
-                top: 36.8%; 
-                left: 40.5%;
-              }
-              ha-card {
-                box-shadow: none;
-              }
-            custom_fields:
-              icon_hue: >
-                [[[
-                  const state = entity.state === 'on' ? 'animate' : null;
-                  return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
-                <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
-                ]]]
-            styles:
-              card:
-                - width: 9.5vw
-                - height: 9.5vw
-                - border-radius: 10%
-              name:
-                - position: absolute
-                - bottom: 1px
-                - padding-left: 0.8vw
-                - padding-bottom: 0.4vw
-                - font-size: 1.5vw
-                - font-weight: 600
-              custom_fields:
-                icon_hue:
-                  [top: 11%, left: 4.5%, width: 3.05vw, position: absolute]
-            state:
-              - value: "on"
-                styles:
-                  card:
-                    - filter: opacity(90%)
-              - value: "off"
-                styles:
-                  card:
-                    - filter: opacity(50%)
-                  icon:
-                    - filter: grayscale(100%)
+            card:
+              type: grid
+              title: Living Room
+              columns: 2
+              cards:
+                # test1
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  entity: light.36647026e09806c02f19
+                  name: 吸顶灯1
+                  show_icon: false
+                  show_name: true
+                  custom_fields:
+                    icon_hue: >
+                      [[[
+                        const state = entity.state === 'on' ? 'animate' : null;
+                        return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
+                      <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+                      <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
+                      ]]]
+                  styles:
+                    card:
+                      # - width: 9.5vw
+                      # - height: 9.5vw
+                      - border-radius: 10%
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 0.8vw
+                      - padding-bottom: 0.4vw
+                      - font-size: 1.5vw
+                      - font-weight: 600
+                    custom_fields:
+                      icon_hue:
+                        [
+                          top: 11%,
+                          left: 4.5%,
+                          width: 3.05vw,
+                          position: absolute,
+                        ]
+                # test2
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  entity: light.36647026e09806c02f19
+                  name: 吸顶灯1
+                  show_icon: false
+                  show_name: true
+                  custom_fields:
+                    icon_hue: >
+                      [[[
+                        const state = entity.state === 'on' ? 'animate' : null;
+                        return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
+                      <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+                      <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
+                      ]]]
+                  styles:
+                    card:
+                      # - width: 9.5vw
+                      # - height: 9.5vw
+                      - border-radius: 10%
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 0.8vw
+                      - padding-bottom: 0.4vw
+                      - font-size: 1.5vw
+                      - font-weight: 600
+                    custom_fields:
+                      icon_hue:
+                        [
+                          top: 11%,
+                          left: 4.5%,
+                          width: 3.05vw,
+                          position: absolute,
+                        ]
+                # test3
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  entity: light.36647026e09806c02f19
+                  name: 吸顶灯1
+                  show_icon: false
+                  show_name: true
+                  custom_fields:
+                    icon_hue: >
+                      [[[
+                        const state = entity.state === 'on' ? 'animate' : null;
+                        return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
+                      <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+                      <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
+                      ]]]
+                  styles:
+                    card:
+                      # - width: 9.5vw
+                      # - height: 9.5vw
+                      - border-radius: 10%
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 0.8vw
+                      - padding-bottom: 0.4vw
+                      - font-size: 1.5vw
+                      - font-weight: 600
+                    custom_fields:
+                      icon_hue:
+                        [
+                          top: 11%,
+                          left: 4.5%,
+                          width: 3.05vw,
+                          position: absolute,
+                        ]
+                # test4
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  entity: light.36647026e09806c02f19
+                  name: 吸顶灯1
+                  show_icon: false
+                  show_name: true
+                  custom_fields:
+                    icon_hue: >
+                      [[[
+                        const state = entity.state === 'on' ? 'animate' : null;
+                        return `<svg viewBox="0 0 50 50"><style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
+                      <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
+                      <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/> </svg>`;
+                      ]]]
+                  styles:
+                    card:
+                      # - width: 9.5vw
+                      # - height: 9.5vw
+                      - border-radius: 10%
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 0.8vw
+                      - padding-bottom: 0.4vw
+                      - font-size: 1.5vw
+                      - font-weight: 600
+                    custom_fields:
+                      icon_hue:
+                        [
+                          top: 11%,
+                          left: 4.5%,
+                          width: 3.05vw,
+                          position: absolute,
+                        ]
