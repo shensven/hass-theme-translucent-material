@@ -23,7 +23,7 @@ views:
               title: Room L
               columns: 2
               cards:
-                # Main LED Switch
+                # 1. Main LED Switch
                 - type: custom:button-card
                   style: |
                     ha-card {
@@ -67,7 +67,7 @@ views:
                         icon:
                           - filter: grayscale(100%)
 
-                # RoomL-Wall-Binary-Sensor Battery
+                # 2. RoomL-Wall-Binary-Sensor Battery
                 - type: custom:button-card
                   style: |
                     ha-card {
@@ -77,9 +77,15 @@ views:
                   entity: sensor.battery_158d0005883f46
                   icon: mdi:battery-80
                   name: 无线开关
-                  show_icon: true
+                  show_icon: false
                   show_name: true
                   custom_fields:
+                    icon_battery: >
+                      [[[
+                        return `
+                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16,10H8V6H16M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z" /></svg>
+                        `;
+                      ]]]
                     circle: >
                       [[[ 
                         return `
@@ -90,12 +96,6 @@ views:
                     card:
                       - border-radius: 10%
                       - filter: opacity(50%)
-                    icon:
-                      - position: absolute
-                      - margin-top: -26%
-                      - margin-left: -30%
-                      - width: 33%
-                      - filter: opacity(60%)
                     name:
                       - position: absolute
                       - bottom: 1px
@@ -104,10 +104,12 @@ views:
                       - font-size: 15px
                       - font-weight: 600
                     custom_fields:
+                      icon_battery:
+                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
                       circle:
                         [top: 9.5%, right: 8.5%, width: 32px, position: absolute]
 
-                # test3
+                # 3. test
                 - type: custom:button-card
                   style: |
                     ha-card {
