@@ -42,8 +42,8 @@ views:
                         return `
                           <svg viewBox="0 0 24 24">
                               <style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                              <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M20,11h3v2h-3V11 M1,11h3v2H1V11 M13,1v3h-2V1H13 M4.9,3.5l2.1,2.1L5.6,7.1L3.5,4.9L4.9,3.5 M17,5.6l2.1-2.1l1.4,1.4l-2.1,2.1L17,5.6z"/>
-                              <path fill="#9da0a2" d="M12,6c3.3,0,6,2.7,6,6c0,2.2-1.2,4.2-3,5.2V19c0,0.6-0.4,1-1,1h-4c-0.6,0-1-0.4-1-1v-1.8c-1.8-1-3-3-3-5.2C6,8.7,8.7,6,12,6M14,21v1c0,0.6-0.4,1-1,1h-2c-0.6,0-1-0.4-1-1v-1H14"/>
+                              <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M18,10.9h2.3v1.5H18V10.9 M3.7,10.9h2.3v1.5H3.7V10.9 M12.7,3.4v2.3h-1.5V3.4H12.7 M6.6,5.3l1.6,1.6L7.1,7.9L5.5,6.3L6.6,5.3 M15.7,6.9l1.6-1.6l1.1,1.1l-1.6,1.6L15.7,6.9z"/>
+                              <path fill="#9da0a2" d="M11.9,7.2c2.5,0,4.5,2,4.5,4.5c0,1.7-0.9,3.1-2.3,3.9v1.4c0,0.4-0.3,0.8-0.8,0.8h-3c-0.4,0-0.8-0.3-0.8-0.8v-1.4c-1.3-0.8-2.3-2.2-2.3-3.9C7.4,9.2,9.5,7.2,11.9,7.2 M13.5,18.5v0.8c0,0.4-0.3,0.8-0.8,0.8h-1.5c-0.4,0-0.8-0.3-0.8-0.8v-0.8H13.5"/>
                           </svg>
                         `;
                       ]]]
@@ -59,7 +59,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_hue:
-                        [top: 9.6%, left: 5.5%, width: 30px, position: absolute]
+                        [top: 6%, left: 4.5%, width: 38px, position: absolute]
                   state:
                     - value: "on"
                       styles:
@@ -87,7 +87,9 @@ views:
                     icon_brightness: >
                       [[[
                         return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" /></svg>
+                          <svg viewBox="0 0 24 24">
+                              <path fill="#9da0a2" d="M12,16.4c-2.4,0-4.4-2-4.4-4.4s2-4.4,4.4-4.4s4.4,2,4.4,4.4S14.4,16.4,12,16.4 M17.9,14.4l2.4-2.4l-2.4-2.4V6.1h-3.5L12,3.7L9.6,6.1H6.1v3.5L3.7,12l2.4,2.4v3.5h3.5l2.4,2.4l2.4-2.4h3.5V14.4z"/>
+                          </svg>
                         `;
                       ]]]
                     circle: >
@@ -109,12 +111,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_brightness:
-                        [
-                          top: 10.6%,
-                          left: 4.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
+                        [top: 6%, left: 4.5%, width: 38px, position: absolute]
                       circle:
                         [
                           top: 9.5%,
@@ -255,7 +252,9 @@ views:
                     icon_battery: >
                       [[[
                         return `
-                          <ha-icon icon="mdi:battery-70" style="color: #9da0a2;"></ha-icon>
+                          <svg viewBox="0 0 24 24">
+                              <path fill="#9da0a2" d="M13.6,10.4H7.2V7.2h6.4 M14.1,5.6h-1.3V4H8v1.6H6.7c-0.6,0-1.1,0.5-1.1,1.1v12.3c0,0.6,0.5,1.1,1.1,1.1h7.5c0.6,0,1.1-0.5,1.1-1.1V6.7C15.2,6.1,14.7,5.6,14.1,5.6z"/>
+                          </svg>
                         `;
                       ]]]
                     circle: >
@@ -277,7 +276,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_battery:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
+                        [top: 6%, left: 4.5%, width: 38px, position: absolute]
                       circle:
                         [
                           top: 9.5%,
@@ -407,7 +406,9 @@ views:
                     icon_battery: >
                       [[[
                         return `
-                          <ha-icon icon="mdi:battery-70" style="color: #9da0a2;"></ha-icon>
+                          <svg viewBox="0 0 24 24">
+                              <path fill="#9da0a2" d="M13.6,10.4H7.2V7.2h6.4 M14.1,5.6h-1.3V4H8v1.6H6.7c-0.6,0-1.1,0.5-1.1,1.1v12.3c0,0.6,0.5,1.1,1.1,1.1h7.5c0.6,0,1.1-0.5,1.1-1.1V6.7C15.2,6.1,14.7,5.6,14.1,5.6z"/>
+                          </svg>
                         `;
                       ]]]
                     circle: >
@@ -429,7 +430,7 @@ views:
                       - font-weight: 600
                     custom_fields:
                       icon_battery:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
+                        [top: 6%, left: 4.5%, width: 38px, position: absolute]
                       circle:
                         [
                           top: 9.5%,
