@@ -138,23 +138,9 @@ views:
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: sensor.load_1m
-                  name: 1分钟负载
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_cpu_32_bit: >
-                      [[[
-                        return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V5H7A2,2 0 0,0 5,7V9H3V11H5V13H3V15H5V17A2,2 0 0,0 7,19H9V21H11V19H13V21H15V19H17A2,2 0 0,0 19,17V15H21V13H19V11H21V9H19V7A2,2 0 0,0 17,5H15V3H13V5H11V3M7,9H10.5A1,1 0 0,1 11.5,10V14A1,1 0 0,1 10.5,15H7V13.5H10V12.75H8.5V11.25H10V10.5H7M12.5,9H16A1,1 0 0,1 17,10V11.75A1,1 0 0,1 16,12.75H14V13.5H17V15H12.5V12.25A1,1 0 0,1 13.5,11.25H15.5V10.5H12.5" /></svg>‰
-                        `;
-                      ]]]
-                    circle: >
-                      [[[ 
-                        return `
-                          <svg viewBox="0 0 53 53"><circle cx="26.5" cy="26.5" r="25" stroke="#00000070" stroke-width="1.5" fill="#FFFFFF" /><text x="50%" y="54%" fill="#8d8e90" font-size="20" text-anchor="middle" alignment-baseline="middle">${ states['sensor.load_1m'].state }</text></svg>
-                        `;  
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
@@ -166,16 +152,6 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_cpu_32_bit:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
-                      circle:
-                        [
-                          top: 9.5%,
-                          right: 8.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
 
           # Group 2
           - type: custom:mod-card
@@ -292,23 +268,9 @@ views:
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: sensor.load_5m
-                  name: 5分钟负载
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_cpu_32_bit: >
-                      [[[
-                        return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V5H7A2,2 0 0,0 5,7V9H3V11H5V13H3V15H5V17A2,2 0 0,0 7,19H9V21H11V19H13V21H15V19H17A2,2 0 0,0 19,17V15H21V13H19V11H21V9H19V7A2,2 0 0,0 17,5H15V3H13V5H11V3M7,9H10.5A1,1 0 0,1 11.5,10V14A1,1 0 0,1 10.5,15H7V13.5H10V12.75H8.5V11.25H10V10.5H7M12.5,9H16A1,1 0 0,1 17,10V11.75A1,1 0 0,1 16,12.75H14V13.5H17V15H12.5V12.25A1,1 0 0,1 13.5,11.25H15.5V10.5H12.5" /></svg>‰
-                        `;
-                      ]]]
-                    circle: >
-                      [[[ 
-                        return `
-                          <svg viewBox="0 0 53 53"><circle cx="26.5" cy="26.5" r="25" stroke="#00000070" stroke-width="1.5" fill="#FFFFFF" /><text x="50%" y="54%" fill="#8d8e90" font-size="20" text-anchor="middle" alignment-baseline="middle">${ states['sensor.load_5m'].state }</text></svg>
-                        `;  
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
@@ -320,18 +282,85 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_cpu_32_bit:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
-                      circle:
-                        [
-                          top: 9.5%,
-                          right: 8.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
 
           # Group 3
+          - type: custom:mod-card
+            style: |
+              ha-card {
+                padding: 10px;
+                color: rgba(255,255,255,0.5);
+              }
+            card:
+              type: grid
+              title: 卧室2
+              columns: 2
+              cards:
+                # 1. test
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  name: 不可用
+                  show_icon: false
+                  show_name: true
+                  styles:
+                    card:
+                      - border-radius: 10%
+                      - filter: opacity(50%)
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
+                      - font-weight: 600
+
+                # 2. test
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  name: 不可用
+                  show_icon: false
+                  show_name: true
+                  styles:
+                    card:
+                      - border-radius: 10%
+                      - filter: opacity(50%)
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
+                      - font-weight: 600
+
+                # 3. test
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  name: 不可用
+                  show_icon: false
+                  show_name: true
+                  styles:
+                    card:
+                      - border-radius: 10%
+                      - filter: opacity(50%)
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
+                      - font-weight: 600
+          # Group 4
           - type: custom:mod-card
             style: |
               ha-card {
@@ -343,32 +372,20 @@ views:
               title: 厨房
               columns: 2
               cards:
-                # 1. Main hue Switch
+                # 1. test
                 - type: custom:button-card
                   style: |
                     ha-card {
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: light.36647026e09806c02f19
-                  name: 吸顶灯
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_hue: >
-                      [[[
-                        const state = entity.state === 'on' ? 'animate' : null;
-                        return `
-                          <svg viewBox="0 0 50 50">
-                              <style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                              <path fill="#9da0a2" d="M26.4 25.6c.6-.3 1.1-.7 1.1-1.3L25 17.9l-2.5 6.4c0 .7.6 1.1 1.1 1.3v20.8h-5.5v2.7h13.7v-2.7h-5.5V25.6z"/>
-                              <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="M24.6.9l-9.4.5c-.6.1-1.9 0-2.5 2.1s-2.4 9.1-4 16.9c-.2.7-.5 2-.5 2.3s-.4 1.6.9 1.6c.8.1 7.4.3 15.9.3 8.6 0 15.1-.3 15.9-.3 1.3-.1.9-1.3.9-1.6s-.3-1.6-.5-2.3c-1.6-7.8-3.4-14.8-4-16.9s-1.9-2-2.5-2.1c-1.6-.2-6.9-.4-9.4-.5"/>
-                          </svg>
-                        `;
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
+                      - filter: opacity(50%)
                     name:
                       - position: absolute
                       - bottom: 1px
@@ -376,20 +393,6 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_hue:
-                        [top: 11%, left: 4.5%, width: 32px, position: absolute]
-                  state:
-                    - value: "on"
-                      styles:
-                        card:
-                          - filter: opacity(90%)
-                    - value: "off"
-                      styles:
-                        card:
-                          - filter: opacity(50%)
-                        icon:
-                          - filter: grayscale(100%)
 
                 # 2. A-O-Smith-Wall-Binary-Sensor Battery
                 - type: custom:button-card
@@ -446,23 +449,9 @@ views:
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: sensor.load_15m
-                  name: 15分钟负载
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_cpu_32_bit: >
-                      [[[
-                        return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V5H7A2,2 0 0,0 5,7V9H3V11H5V13H3V15H5V17A2,2 0 0,0 7,19H9V21H11V19H13V21H15V19H17A2,2 0 0,0 19,17V15H21V13H19V11H21V9H19V7A2,2 0 0,0 17,5H15V3H13V5H11V3M7,9H10.5A1,1 0 0,1 11.5,10V14A1,1 0 0,1 10.5,15H7V13.5H10V12.75H8.5V11.25H10V10.5H7M12.5,9H16A1,1 0 0,1 17,10V11.75A1,1 0 0,1 16,12.75H14V13.5H17V15H12.5V12.25A1,1 0 0,1 13.5,11.25H15.5V10.5H12.5" /></svg>‰
-                        `;
-                      ]]]
-                    circle: >
-                      [[[ 
-                        return `
-                          <svg viewBox="0 0 53 53"><circle cx="26.5" cy="26.5" r="25" stroke="#00000070" stroke-width="1.5" fill="#FFFFFF" /><text x="50%" y="54%" fill="#8d8e90" font-size="20" text-anchor="middle" alignment-baseline="middle">${ states['sensor.load_15m'].state }</text></svg>
-                        `;  
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
@@ -474,18 +463,8 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_cpu_32_bit:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
-                      circle:
-                        [
-                          top: 9.5%,
-                          right: 8.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
 
-          # Group 4
+          # Group 5
           - type: custom:mod-card
             style: |
               ha-card {
@@ -494,7 +473,7 @@ views:
               }
             card:
               type: grid
-              title: 可移动
+              title: 移动的设备
               columns: 2
               cards:
                 # 1. Fan Switch
@@ -514,9 +493,7 @@ views:
                         const state = entity.state === 'on' ? 'animate' : null;
                         return `
                           <svg viewBox="0 0 24 24">
-                              <style>@keyframes animate{0%{transform: scale(0.85);}20%{transform: scale(1.1);}40%{transform: scale(0.95);}60%{transform: scale(1.03);}80%{transform: scale(0.97);}100%{transform: scale(1);}}.animate{animation: animate 0.8s; transform-origin: center;}</style>
-                              <path fill="#9da0a2" d="m 8,9 h 3 V 4 h 2 v 5 h 3 l 4,8 H 4 L 8,9""/>
-                              <path class="${state}" fill="var(--button-card-light-color-no-temperature)" d="m 14,18 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 z"/>
+                              <path fill="#9da0a2" d="M12,11.2c-0.4,0-0.8,0.4-0.8,0.8s0.4,0.8,0.8,0.8s0.8-0.4,0.8-0.8S12.4,11.2,12,11.2 M12.4,4c3.6,0,3.7,2.8,1.8,3.8c-0.8,0.4-1.1,1.2-1.3,2c0.4,0.2,0.7,0.4,1,0.7c3-1.6,6.1-1,6.1,1.9c0,3.6-2.8,3.7-3.8,1.8c-0.4-0.8-1.2-1.1-2-1.3c-0.2,0.4-0.4,0.7-0.7,1c1.6,2.9,1,6.1-1.9,6.1c-3.6,0-3.7-2.9-1.8-3.8c0.8-0.4,1.1-1.2,1.3-2c-0.4-0.2-0.7-0.4-1-0.7c-2.9,1.6-6.1,1-6.1-1.9C4,8,6.9,7.9,7.8,9.8c0.4,0.8,1.2,1.1,2,1.3c0.2-0.4,0.4-0.7,0.7-1C8.9,7.2,9.6,4,12.4,4z"/>
                           </svg>
                         `;
                       ]]]
@@ -552,23 +529,9 @@ views:
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: sensor.load_15m
-                  name: 15分钟负载
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_cpu_32_bit: >
-                      [[[
-                        return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V5H7A2,2 0 0,0 5,7V9H3V11H5V13H3V15H5V17A2,2 0 0,0 7,19H9V21H11V19H13V21H15V19H17A2,2 0 0,0 19,17V15H21V13H19V11H21V9H19V7A2,2 0 0,0 17,5H15V3H13V5H11V3M7,9H10.5A1,1 0 0,1 11.5,10V14A1,1 0 0,1 10.5,15H7V13.5H10V12.75H8.5V11.25H10V10.5H7M12.5,9H16A1,1 0 0,1 17,10V11.75A1,1 0 0,1 16,12.75H14V13.5H17V15H12.5V12.25A1,1 0 0,1 13.5,11.25H15.5V10.5H12.5" /></svg>‰
-                        `;
-                      ]]]
-                    circle: >
-                      [[[ 
-                        return `
-                          <svg viewBox="0 0 53 53"><circle cx="26.5" cy="26.5" r="25" stroke="#00000070" stroke-width="1.5" fill="#FFFFFF" /><text x="50%" y="54%" fill="#8d8e90" font-size="20" text-anchor="middle" alignment-baseline="middle">${ states['sensor.load_15m'].state }</text></svg>
-                        `;  
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
@@ -580,16 +543,6 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_cpu_32_bit:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
-                      circle:
-                        [
-                          top: 9.5%,
-                          right: 8.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
 
                 # 3. test
                 - type: custom:button-card
@@ -598,23 +551,9 @@ views:
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  entity: sensor.load_15m
-                  name: 15分钟负载
+                  name: 不可用
                   show_icon: false
                   show_name: true
-                  custom_fields:
-                    icon_cpu_32_bit: >
-                      [[[
-                        return `
-                          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,3V5H7A2,2 0 0,0 5,7V9H3V11H5V13H3V15H5V17A2,2 0 0,0 7,19H9V21H11V19H13V21H15V19H17A2,2 0 0,0 19,17V15H21V13H19V11H21V9H19V7A2,2 0 0,0 17,5H15V3H13V5H11V3M7,9H10.5A1,1 0 0,1 11.5,10V14A1,1 0 0,1 10.5,15H7V13.5H10V12.75H8.5V11.25H10V10.5H7M12.5,9H16A1,1 0 0,1 17,10V11.75A1,1 0 0,1 16,12.75H14V13.5H17V15H12.5V12.25A1,1 0 0,1 13.5,11.25H15.5V10.5H12.5" /></svg>‰
-                        `;
-                      ]]]
-                    circle: >
-                      [[[ 
-                        return `
-                          <svg viewBox="0 0 53 53"><circle cx="26.5" cy="26.5" r="25" stroke="#00000070" stroke-width="1.5" fill="#FFFFFF" /><text x="50%" y="54%" fill="#8d8e90" font-size="20" text-anchor="middle" alignment-baseline="middle">${ states['sensor.load_15m'].state }</text></svg>
-                        `;  
-                      ]]]
                   styles:
                     card:
                       - border-radius: 10%
@@ -626,13 +565,3 @@ views:
                       - padding-bottom: 5px
                       - font-size: 15px
                       - font-weight: 600
-                    custom_fields:
-                      icon_cpu_32_bit:
-                        [top: 10%, left: 4.5%, width: 32px, position: absolute]
-                      circle:
-                        [
-                          top: 9.5%,
-                          right: 8.5%,
-                          width: 32px,
-                          position: absolute,
-                        ]
