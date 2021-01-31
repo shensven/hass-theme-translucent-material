@@ -1,5 +1,5 @@
 title: Home197-iPad-View
-background: center no-repeat url("/local/bg.png")
+background: center / cover no-repeat url("/local/bg.png")
 views:
   - panel: true
     path: translucent_material_view
@@ -131,14 +131,15 @@ views:
                         icon:
                           - filter: grayscale(100%)
 
-                # 3. test
+                # 3. Svendroid TV
                 - type: custom:button-card
                   style: |
                     ha-card {
                       box-shadow: none;
                     }
                   aspect_ratio: 1/1
-                  name: 不可用
+                  entity: media_player.svendroid_tv_2
+                  name: Svendroid TV
                   show_icon: false
                   show_name: true
                   styles:
