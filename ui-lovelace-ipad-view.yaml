@@ -170,6 +170,10 @@ views:
                       styles:
                         card:
                           - filter: opacity(90%)
+                    - value: "standby"
+                      styles:
+                        card:
+                          - filter: opacity(90%)
                     - value: "paused"
                       styles:
                         card:
@@ -179,6 +183,12 @@ views:
                         card:
                           - filter: opacity(90%)
                     - value: "off"
+                      styles:
+                        card:
+                          - filter: opacity(50%)
+                        icon:
+                          - filter: grayscale(100%)
+                    - value: "unavailable"
                       styles:
                         card:
                           - filter: opacity(50%)
@@ -261,7 +271,7 @@ views:
                       [[[
                         return `
                           <svg viewBox="0 0 24 24">
-                              <path fill="#9da0a2" d="M13.6,10.4H7.2V7.2h6.4 M14.1,5.6h-1.3V4H8v1.6H6.7c-0.6,0-1.1,0.5-1.1,1.1v12.3c0,0.6,0.5,1.1,1.1,1.1h7.5c0.6,0,1.1-0.5,1.1-1.1V6.7C15.2,6.1,14.7,5.6,14.1,5.6z"/>
+                              <path fill="#9da0a2" d="M15.5,10.2h-7V6.7h7 M16.1,5h-1.5V3.2H9.4V5H7.9C7.3,5,6.7,5.5,6.7,6.2v13.4c0,0.6,0.5,1.2,1.2,1.2h8.2c0.6,0,1.2-0.5,1.2-1.2V6.2C17.3,5.5,16.7,5,16.1,5z"/>
                           </svg>
                         `;
                       ]]]
@@ -442,7 +452,7 @@ views:
                       [[[
                         return `
                           <svg viewBox="0 0 24 24">
-                              <path fill="#9da0a2" d="M13.6,10.4H7.2V7.2h6.4 M14.1,5.6h-1.3V4H8v1.6H6.7c-0.6,0-1.1,0.5-1.1,1.1v12.3c0,0.6,0.5,1.1,1.1,1.1h7.5c0.6,0,1.1-0.5,1.1-1.1V6.7C15.2,6.1,14.7,5.6,14.1,5.6z"/>
+                              <path fill="#9da0a2" d="M15.5,10.2h-7V6.7h7 M16.1,5h-1.5V3.2H9.4V5H7.9C7.3,5,6.7,5.5,6.7,6.2v13.4c0,0.6,0.5,1.2,1.2,1.2h8.2c0.6,0,1.2-0.5,1.2-1.2V6.2C17.3,5.5,16.7,5,16.1,5z"/>
                           </svg>
                         `;
                       ]]]
