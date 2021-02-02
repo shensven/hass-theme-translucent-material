@@ -194,6 +194,16 @@ views:
                           - filter: opacity(50%)
                         icon:
                           - filter: grayscale(100%)
+                  tap_action:
+                    services: |
+                      [[[
+                        if (entity.state === 'idle') {
+                            hass.callService('androidtv', 'adb_command', {
+                                entity_id: 'media_player.svendroid_tv_2',
+                                command: 'SLEEP'
+                            });
+                        }
+                      ]]]
 
           # Group 2
           - type: custom:mod-card
