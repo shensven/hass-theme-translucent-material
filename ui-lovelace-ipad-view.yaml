@@ -197,25 +197,7 @@ views:
                   tap_action:
                     services: |
                       [[[
-                        if (entity.state === 'idle') {
-                            hass.callService('androidtv', 'adb_command', {
-                                entity_id: 'media_player.svendroid_tv_2',
-                                command: 'SLEEP'
-                            });
-                        }
-                        if (entity.state === 'standby') {
-                            hass.callService('androidtv', 'adb_command', {
-                                entity_id: 'media_player.svendroid_tv_2',
-                                command: 'SLEEP'
-                            });
-                        }
-                        if (entity.state === 'paused') {
-                            hass.callService('androidtv', 'adb_command', {
-                                entity_id: 'media_player.svendroid_tv_2',
-                                command: 'SLEEP'
-                            });
-                        }
-                        if (entity.state === 'playing') {
+                        if (entity.state === 'idle' || entity.state === 'standby' || entity.state === 'paused' || entity.state === 'playing') {
                             hass.callService('androidtv', 'adb_command', {
                                 entity_id: 'media_player.svendroid_tv_2',
                                 command: 'SLEEP'
