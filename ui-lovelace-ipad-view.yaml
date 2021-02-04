@@ -210,6 +210,58 @@ views:
                             });
                         }
                       ]]]
+                # 4. Hesense TV
+                - type: custom:button-card
+                  style: |
+                    ha-card {
+                      box-shadow: none;
+                    }
+                  aspect_ratio: 1/1
+                  entity: switch.hisense_tv_ir_remote_controller
+                  name: Hesense TV
+                  show_icon: false
+                  show_name: true
+                  custom_fields:
+                    icon_androidtv: >
+                      [[[
+                        return `
+                          <svg viewBox="0 0 24 24">
+                              <path fill="#9da0a2" d="M10.3,14.5l4.4-2.5l-4.4-2.5V14.5 M20.1,7.9c0.1,0.4,0.2,0.9,0.2,1.6c0.1,0.7,0.1,1.3,0.1,1.8l0.1,0.7c0,1.9-0.1,3.2-0.4,4.1c-0.2,0.8-0.7,1.3-1.5,1.5c-0.4,0.1-1.1,0.2-2.2,0.2c-1.1,0.1-2.1,0.1-3,0.1L12,17.9c-3.5,0-5.8-0.1-6.6-0.4c-0.8-0.2-1.3-0.7-1.5-1.5c-0.1-0.4-0.2-0.9-0.2-1.6c-0.1-0.7-0.1-1.3-0.1-1.8L3.5,12c0-1.9,0.1-3.2,0.4-4.1c0.2-0.8,0.7-1.3,1.5-1.5c0.4-0.1,1.1-0.2,2.2-0.2c1.1-0.1,2.1-0.1,3-0.1L12,6.1c3.5,0,5.8,0.1,6.6,0.4C19.4,6.7,19.9,7.1,20.1,7.9z"/>
+                          </svg>
+                        `;
+                      ]]]
+                  styles:
+                    card:
+                      - border-radius: 10%
+                      - filter: opacity(50%)
+                    name:
+                      - position: absolute
+                      - bottom: 1px
+                      - padding-left: 7px
+                      - padding-bottom: 5px
+                      - font-size: 15px
+                      - font-weight: 600
+                    custom_fields:
+                      icon_androidtv:
+                        [top: 6%, left: 4.5%, width: 38px, position: absolute]
+                  state:
+                    - value: "on"
+                      styles:
+                        card:
+                          - filter: opacity(90%)
+                    - value: "off"
+                      styles:
+                        card:
+                          - filter: opacity(50%)
+                        icon:
+                          - filter: grayscale(100%)
+                  tap_action:
+                    services: |
+                      [[[
+                        hass.callService('switch', 'turn_on', {
+                            entity_id: 'switch.hisense_tv_ir_remote_controller',
+                        });
+                      ]]]
 
           # Group 2
           - type: custom:mod-card
