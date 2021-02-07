@@ -1,4 +1,7 @@
 # hass-theme-translucent-material
+🎨 A Home Assistant theme inspired on the Apple Homekit.
+
+
 ## Usage
 1. Install [HACS](https://hacs.xyz/)
 2. Install [lovelace-layout-card](https://github.com/thomasloven/lovelace-layout-card)
