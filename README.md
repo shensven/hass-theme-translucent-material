@@ -1,7 +1,7 @@
 # hassboard-translucent-material
 🎨 A Home Assistant dashboard inspired on the Apple Homekit.
 
-![Capture Screenshot](/Changelog/192.168.11.64_8123_lovelace-yaml_translucent_material_view(iPad)_2021_02_04_01.png)
+![Capture Screenshot](/Changelog/192.168.11.64_8123_lovelace-yaml_translucent_material_view(iPad)_2021_02_15_01.png)
 
 ## Usage
 1. Install [HACS](https://hacs.xyz/)
